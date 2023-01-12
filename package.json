@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A ghostly light backend framework for storing and delivering uploaded information!",
   "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon server.js",
