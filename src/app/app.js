@@ -1,5 +1,5 @@
 import Express from 'express';
-import { UPLOAD_ROUTER } from './routes/upload.js';
+import { ROUTES as UPLOAD_ROUTER } from './routes/upload.js';
 import Mongoose from 'mongoose';
 import DotENV from 'dotenv';
 
@@ -24,7 +24,7 @@ const {PORT, DATABASE_URI, APP_NAME = 'Ghost Upload API' } = process.env;
 const bindRoutes = () => {
 
     // Sets the router for uploads
-    WEB_SERVER.use('/upload', UPLOAD_ROUTER)
+    WEB_SERVER.use('/u', UPLOAD_ROUTER())
 }
 
 /**
@@ -32,6 +32,8 @@ const bindRoutes = () => {
  */
 const bindMiddleware = () => {
 
+    // Sets the middleware for parsing json.
+    WEB_SERVER.use(Express.json());
 }
 
 /**
@@ -61,6 +63,7 @@ const bindDatabase = () => {
  */
 const build = () => {
 
+    bindMiddleware();
     bindRoutes();
     bindDatabase();
 }

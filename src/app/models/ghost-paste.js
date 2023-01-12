@@ -30,6 +30,6 @@ const GHOST_PASTE_SCHEMA = new Schema({
 /**
  * References the schema as a model.
  */
-const PASTE_MODEL = Mongoose.model(GHOST_PASTE_SCHEMA);
+const PASTE_MODEL = Mongoose.model('ghostAPI', GHOST_PASTE_SCHEMA);
 
 export { PASTE_MODEL };
