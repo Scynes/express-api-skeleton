@@ -76,7 +76,7 @@ export class APIHandler {
      * @param {*} request 
      * @param {*} response 
      */
-    handleEdit = (request, response) => {
+    handleUpdate = (request, response) => {
 
         throw new Error(`Error: handleEdit() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
     }
@@ -92,7 +92,7 @@ export class APIHandler {
 
         const result = await this.MODEL.create(data).catch((error) => (error));
 
-        if (callback && (typeof callback === 'function')) callback(result);
+        if (this.#sameType(callback, 'function')) callback(result);
 
         return result;
     }
@@ -108,7 +108,7 @@ export class APIHandler {
 
         const result = await this.MODEL.deleteOne({_id: id}).catch((error) => (error));
 
-        if (callback && (typeof callback === 'function')) callback(result);
+        if (this.#sameType(callback, 'function')) callback(result);
 
         return result;
     }
@@ -124,7 +124,7 @@ export class APIHandler {
 
         const result = await this.MODEL.findOne({_id: id}).catch((error) => (error));
 
-        if (callback && (typeof callback === 'function')) callback(result);
+        if (this.#sameType(callback, 'function')) callback(result);
 
         return result === null ? { message: `_id: ${id} not found for model '${this.MODEL.collection.collectionName}'` } : result;
     }
@@ -139,14 +139,42 @@ export class APIHandler {
      */
     update = async (id, to, callback) => {
 
-        if (typeof to !== 'object') {
+        if (!this.#sameType(to, 'object')) {
+
             throw new Error(`Error: argument 'to' in APIHandler.update -> ${this.constructor.name} is not of type Object!`);
+
+        } else if (this.#objectEmpty(to)) {
+
+            return ( { message: `argument 'to' in APIHandler.update -> ${this.constructor.name} cannot have empty properties!` } );
         }
 
-        const result = await this.MODEL.findByIdAndUpdate(id, to).catch((error) => (error));
+        const result = await this.MODEL.findByIdAndUpdate(id, to, { new: true }).catch((error) => (error));
 
-        if (callback && (typeof callback === 'function')) callback(result);
+        if (this.#sameType(callback, 'function')) callback(result);
 
         return result === null ? { message: `_id: ${id} not found for model '${this.MODEL.collection.collectionName}'` } : result;
+    }
+
+    /**
+     * Private utility method for checking if an object is empty.
+     * 
+     * @param {*} obj 
+     * @returns true if 0 length
+     */
+    #objectEmpty = (obj) => {
+
+        return Object.keys(obj).length === 0;
+    }
+
+    /**
+     * Private utility method for checking if an object is of the same type passed.
+     * 
+     * @param {*} obj 
+     * @param {*} type to check
+     * @returns true if {obj} is of same {type}
+     */
+    #sameType = (obj, type) => {
+
+        return (typeof obj === type);
     }
 }

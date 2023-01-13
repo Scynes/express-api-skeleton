@@ -25,6 +25,14 @@ class Paste extends APIHandler {
 
         response.json(PASTE);
     }
+
+    handleUpdate = async (request, response) => {
+
+        const ID = request.params.id;
+        const EDITED_PASTE = await this.update(ID, request.body);
+
+        response.json(EDITED_PASTE);
+    }
 }
 
 export default new Paste(PASTE_MODEL);

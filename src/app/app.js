@@ -2,6 +2,7 @@ import Express from 'express';
 import { ROUTES as UPLOAD_ROUTER } from './routes/upload.js';
 import { ROUTES as GET_ROUTER } from './routes/get.js';
 import { ROUTES as DELETE_ROUTER } from './routes/delete.js';
+import { ROUTES as UPDATE_ROUTER } from './routes/update.js';
 import Mongoose from 'mongoose';
 import DotENV from 'dotenv';
 
@@ -31,6 +32,8 @@ const bindRoutes = () => {
     WEB_SERVER.use('/get', GET_ROUTER());
     // Sets the router for deleting
     WEB_SERVER.use('/delete', DELETE_ROUTER());
+    // Sets the router for updating
+    WEB_SERVER.use('/update', UPDATE_ROUTER());
 
     console.log(`${APP_NAME} - successfully bound routes...`);
 }
