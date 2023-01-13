@@ -1,5 +1,12 @@
 import Mongoose from 'mongoose';
 
+/**
+ * Used for abstraction, APIHandler works as a worker for wrapping
+ * mongoose methods and referencing them with the passed constructor {Mongoose.Model}.
+ * 
+ * @function handleGet(),handleUpload(),handleDelete()
+ *      require implementation of extended APIHandler.
+ */
 export class APIHandler {
 
     /**
@@ -74,7 +81,7 @@ export class APIHandler {
 
         const result = await this.MODEL.create(data).catch((error) => (error));
 
-        if (callback) callback();
+        if (callback && (typeof callback === 'function')) callback(result);
 
         return result;
     }
@@ -90,7 +97,7 @@ export class APIHandler {
 
         const result = await this.MODEL.deleteOne({_id: id}).catch((error) => (error));
 
-        if (callback) callback();
+        if (callback && (typeof callback === 'function')) callback(result);
 
         return result;
     }
@@ -106,7 +113,7 @@ export class APIHandler {
 
         const result = await this.MODEL.findOne({_id: id}).catch((error) => (error));
 
-        if (callback) callback();
+        if (callback && (typeof callback === 'function')) callback(result);
 
         return result === null ? { message: `_id: ${id} not found for model '${this.MODEL.collection.collectionName}'` } : result;
     }
