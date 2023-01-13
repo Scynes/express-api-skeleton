@@ -3,6 +3,19 @@ import util from 'util';
 export class APIHandler {
 
     /**
+     * Default handler method for a get request on root / API routes.
+     * 
+     * @param {*} request 
+     * @param {*} response 
+     */
+    static landingHandler = (request, response) => {
+
+        response.json({
+            error: 'This is not a valid API route!'
+        })
+    }
+
+    /**
      * Handles an upload requests. Forced abstraction of {APIHandler} implementation.
      * 
      * @param {*} request 
