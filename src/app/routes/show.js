@@ -15,7 +15,7 @@ const ROUTES = () => {
     SHOW_ROUTER.get('/', APIHandler.landingHandler);
     SHOW_ROUTER.get('/paste', Paste.handleGet);
 
-    return UPLOAD_ROUTER;
+    return SHOW_ROUTER;
 }
 
 export { ROUTES };

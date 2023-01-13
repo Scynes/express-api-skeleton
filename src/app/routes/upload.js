@@ -14,7 +14,6 @@ const ROUTES = () => {
 
     UPLOAD_ROUTER.get('/', APIHandler.landingHandler);
     UPLOAD_ROUTER.post('/paste', Paste.handleUpload);
-    UPLOAD_ROUTER.delete('/paste', Paste.handleDelete);
 
     return UPLOAD_ROUTER;
 }
