@@ -1,7 +1,7 @@
 import Mongoose from 'mongoose';
 
 /**
- * Used for abstraction, APIHandler works as a worker for wrapping
+ * Used for abstraction, APIHandler is a worker for wrapping
  * mongoose methods and referencing them with the passed constructor {Mongoose.Model}.
  * 
  * @function handleGet(),handleUpload(),handleDelete()

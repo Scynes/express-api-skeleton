@@ -1,8 +1,8 @@
 import Express from 'express';
-import { ROUTES as UPLOAD_ROUTER } from './routes/upload.js';
-import { ROUTES as GET_ROUTER } from './routes/get.js';
-import { ROUTES as DELETE_ROUTER } from './routes/delete.js';
+import { ROUTES as CREATE_ROUTER } from './routes/create.js';
+import { ROUTES as READ_ROUTER } from './routes/read.js';
 import { ROUTES as UPDATE_ROUTER } from './routes/update.js';
+import { ROUTES as DELETE_ROUTER } from './routes/delete.js';
 import Mongoose from 'mongoose';
 import DotENV from 'dotenv';
 
@@ -26,14 +26,14 @@ const {PORT, DATABASE_URI, APP_NAME = 'Ghost Upload API' } = process.env;
  */
 const bindRoutes = () => {
 
-    // Sets the router for uploads
-    WEB_SERVER.use('/upload', UPLOAD_ROUTER());
-    // Sets the router for sgetting a resource
-    WEB_SERVER.use('/get', GET_ROUTER());
-    // Sets the router for deleting
-    WEB_SERVER.use('/delete', DELETE_ROUTER());
+    // Sets the router for create
+    WEB_SERVER.use('/c', CREATE_ROUTER());
+    // Sets the router for reading a resource
+    WEB_SERVER.use('/r', READ_ROUTER());
     // Sets the router for updating
-    WEB_SERVER.use('/update', UPDATE_ROUTER());
+    WEB_SERVER.use('/u', UPDATE_ROUTER());
+    // Sets the router for deleting
+    WEB_SERVER.use('/d', DELETE_ROUTER());
 
     console.log(`${APP_NAME} - successfully bound routes...`);
 }

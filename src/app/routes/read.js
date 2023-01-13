@@ -3,19 +3,19 @@ import { APIHandler } from "../controllers/api/api-handler.js";
 import Paste from "../controllers/api/paste.js";
 
 /**
- * Defines the upload router reference.
+ * Defines the create router reference.
  */
-const GET_ROUTER = Express.Router();
+const READ_ROUTER = Express.Router();
 
 /**
  * Sets the route handlers and returns the router instance.
  */
 const ROUTES = () => {
 
-    GET_ROUTER.get('/', APIHandler.landingHandler);
-    GET_ROUTER.get('/paste/:id', Paste.handleGet);
+    READ_ROUTER.get('/', APIHandler.landingHandler);
+    READ_ROUTER.get('/paste/:id', Paste.handleGet);
 
-    return GET_ROUTER;
+    return READ_ROUTER;
 }
 
 export { ROUTES };
