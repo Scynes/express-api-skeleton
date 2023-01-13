@@ -3,14 +3,11 @@ import { PASTE_MODEL } from "../../models/ghost-paste.js";
 
 class Paste extends APIHandler {
 
-    constructor() {
-        super();
-    }
-
     handleUpload = async (request, response) => {
-        const PASTE = await this.create(PASTE_MODEL, request.body);
 
-        response.json(PASTE);
+        const UPLOADED_PASTE = await this.create(PASTE_MODEL, request.body);
+
+        response.json(UPLOADED_PASTE);
     }
 
     handleDelete = async (request, response) => {
@@ -20,6 +17,15 @@ class Paste extends APIHandler {
         const DELETED_PASTE = await this.deleteByID(PASTE_MODEL, ID);
 
         response.json(DELETED_PASTE);
+    }
+
+    handleGet = async (request, response) => {
+
+        // Implement ID grabbing logix here
+        const ID = '63c0d73f41b232caca304404';
+        const PASTE = await this.get(PASTE_MODEL, ID);
+
+        response.json(PASTE);
     }
 }
 
