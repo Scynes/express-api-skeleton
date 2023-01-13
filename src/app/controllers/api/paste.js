@@ -8,9 +8,18 @@ class Paste extends APIHandler {
     }
 
     handleUpload = async (request, response) => {
-        const PASTE = await this.create(PASTE_MODEL, request.body, response);
+        const PASTE = await this.create(PASTE_MODEL, request.body);
 
         response.json(PASTE);
+    }
+
+    handleDelete = async (request, response) => {
+
+        // Implement ID grabbing logic here
+        const ID = '63c0d5b70493af82f1570cce';
+        const DELETED_PASTE = await this.deleteByID(PASTE_MODEL, ID);
+
+        response.json(DELETED_PASTE);
     }
 }
 

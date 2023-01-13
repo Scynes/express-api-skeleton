@@ -12,7 +12,8 @@ const UPLOAD_ROUTER = Express.Router();
 const ROUTES = () => {
 
     UPLOAD_ROUTER.get('/', landingHandler);
-    UPLOAD_ROUTER.post('/paste', Paste.handleUpload)
+    UPLOAD_ROUTER.post('/paste', Paste.handleUpload);
+    UPLOAD_ROUTER.delete('/paste', Paste.handleDelete);
 
     return UPLOAD_ROUTER;
 }
