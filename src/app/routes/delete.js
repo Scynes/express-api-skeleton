@@ -13,7 +13,7 @@ const DELETE_ROUTER = Express.Router();
 const ROUTES = () => {
 
     DELETE_ROUTER.get('/', APIHandler.landingHandler);
-    DELETE_ROUTER.delete('/paste', Paste.handleDelete);
+    DELETE_ROUTER.delete('/paste/:id', Paste.handleDelete);
 
     return DELETE_ROUTER;
 }
