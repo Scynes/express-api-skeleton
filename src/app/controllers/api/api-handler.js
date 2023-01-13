@@ -60,7 +60,7 @@ export class APIHandler {
      */
     handleGet = (request, response) => {
 
-        throw new Error('Error: handleLocate() must be implemented!');
+        throw new Error('Error: handleGet() must be implemented!');
     }
 
     /**
@@ -108,6 +108,6 @@ export class APIHandler {
 
         if (callback) callback();
 
-        return result;
+        return result === null ? { message: `_id: ${id} not found for model '${this.MODEL.collection.collectionName}'` } : result;
     }
 }
