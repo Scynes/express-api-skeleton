@@ -1,5 +1,4 @@
 import Mongoose from 'mongoose';
-import util from 'util';
 
 export class APIHandler {
 
