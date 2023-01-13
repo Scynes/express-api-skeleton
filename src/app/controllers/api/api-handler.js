@@ -1,6 +1,22 @@
+import Mongoose from 'mongoose';
 import util from 'util';
 
 export class APIHandler {
+
+    /**
+     * APIHandler constructor must be passed a valid mongoose model containing
+     * a schema otherwise an error will be thrown for invalidation.
+     * 
+     * @param {*} model mongoose schema model can only be passed here.
+     */
+    constructor (model) {
+
+        if (!model || !(model.schema instanceof Mongoose.Schema)) {
+            throw (new Error (`APIHandler - class ${this.constructor.name} must pass a mongoose Schema model to the constructor!`));
+        }
+
+        this.MODEL = model;
+    }
 
     /**
      * Default handler method for a get request on root / API routes.
@@ -51,14 +67,13 @@ export class APIHandler {
     /**
      * Creates a new mongoDB document entry.
      * 
-     * @param {*} schema mongoDB schema to create the document.
      * @param {*} data  the data to submit to the document.
      * @param {*} callback optional callback.
      * @returns mongoose creation result.
      */
-    create = async (schema, data, callback) => {
+    create = async (data, callback) => {
 
-        const result = await schema.create(data).catch((error) => (error));
+        const result = await this.MODEL.create(data).catch((error) => (error));
 
         if (callback) callback();
 
@@ -66,16 +81,15 @@ export class APIHandler {
     }
 
     /**
-     * Deletes a schemas document entry by id.
+     * Deletes a document entry by id.
      * 
-     * @param {*} schema mongoDB schema to delete from.
      * @param {*} id  the id of the document.
      * @param {*} callback optional callback.
      * @returns mongoose deletion result.
      */
-    deleteByID = async (schema, id, callback) => {
+    deleteByID = async (id, callback) => {
 
-        const result = await schema.deleteOne({_id: id}).catch((error) => (error));
+        const result = await this.MODEL.deleteOne({_id: id}).catch((error) => (error));
 
         if (callback) callback();
 
@@ -85,14 +99,13 @@ export class APIHandler {
     /**
      * Locates a document by id if it exists.
      * 
-     * @param {*} schema mongoDB schema to search.
      * @param {*} id the id of the document.
      * @param {*} callback optional callback.
      * @returns mongoose result.
      */
-    get = async (schema, id, callback) => {
+    get = async (id, callback) => {
 
-        const result = await schema.findOne({_id: id}).catch((error) => (error));
+        const result = await this.MODEL.findOne({_id: id}).catch((error) => (error));
 
         if (callback) callback();
 

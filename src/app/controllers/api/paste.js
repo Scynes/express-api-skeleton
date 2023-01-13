@@ -5,7 +5,7 @@ class Paste extends APIHandler {
 
     handleUpload = async (request, response) => {
 
-        const UPLOADED_PASTE = await this.create(PASTE_MODEL, request.body);
+        const UPLOADED_PASTE = await this.create(request.body);
 
         response.json(UPLOADED_PASTE);
     }
@@ -14,7 +14,7 @@ class Paste extends APIHandler {
 
         // Implement ID grabbing logic here
         const ID = '63c0d5b70493af82f1570cce';
-        const DELETED_PASTE = await this.deleteByID(PASTE_MODEL, ID);
+        const DELETED_PASTE = await this.deleteByID(ID);
 
         response.json(DELETED_PASTE);
     }
@@ -23,10 +23,10 @@ class Paste extends APIHandler {
 
         // Implement ID grabbing logix here
         const ID = '63c0d73f41b232caca304404';
-        const PASTE = await this.get(PASTE_MODEL, ID);
+        const PASTE = await this.get(ID);
 
         response.json(PASTE);
     }
 }
 
-export default new Paste();
+export default new Paste(PASTE_MODEL);
