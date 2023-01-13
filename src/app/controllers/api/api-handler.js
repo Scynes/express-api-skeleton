@@ -45,7 +45,7 @@ export class APIHandler {
      */
     handleUpload = (request, response) => {
 
-        throw new Error('Error: handleUpload() must be implemented!');
+        throw new Error(`Error: handleUpload() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
     }
 
     /**
@@ -56,7 +56,7 @@ export class APIHandler {
      */
     handleDelete = (request, response) => {
 
-        throw new Error('Error: handleDelete() must be implemented!');
+        throw new Error(`Error: handleDelete() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
     }
 
     /**
@@ -67,7 +67,7 @@ export class APIHandler {
      */
     handleGet = (request, response) => {
 
-        throw new Error('Error: handleGet() must be implemented!');
+        throw new Error(`Error: handleGet() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
     }
 
     /**
