@@ -25,6 +25,8 @@ const bindRoutes = () => {
 
     // Sets the router for uploads
     WEB_SERVER.use('/u', UPLOAD_ROUTER())
+
+    console.log(`${APP_NAME} - successfully bound routes...`);
 }
 
 /**
@@ -34,6 +36,8 @@ const bindMiddleware = () => {
 
     // Sets the middleware for parsing json.
     WEB_SERVER.use(Express.json());
+
+    console.log(`${APP_NAME} - successfully bound middleware...`);
 }
 
 /**
@@ -48,7 +52,7 @@ const bindDatabase = () => {
     Mongoose.connection.on('error', error => console.log(`${APP_NAME} - an error has occured while connecting to MongoDB: ${error.message}...`));
 
     Mongoose.connection.on('connected', () => {
-        console.log(`${APP_NAME} - mongoDB successfully connected on ${Mongoose.connection.port}`)
+        console.log(`${APP_NAME} - mongoDB successfully connected on ${Mongoose.connection.port}...`)
 
         WEB_SERVER.listen(PORT, () => {
 
