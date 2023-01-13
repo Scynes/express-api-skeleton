@@ -1,6 +1,6 @@
 import Express from "express";
-import { APIHandler } from "../controllers/api/api-handler.js";
-import Paste from "../controllers/api/paste.js";
+import { APIHandler } from "../../controllers/api/api-handler.js";
+import Paste from "../../controllers/api/paste.js";
 
 /**
  * Defines the delete router reference.

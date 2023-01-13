@@ -1,8 +1,8 @@
 import Express from 'express';
-import { ROUTES as CREATE_ROUTER } from './routes/create.js';
-import { ROUTES as READ_ROUTER } from './routes/read.js';
-import { ROUTES as UPDATE_ROUTER } from './routes/update.js';
-import { ROUTES as DELETE_ROUTER } from './routes/delete.js';
+import { ROUTES as CREATE_ROUTER } from './routes/crud/create.js';
+import { ROUTES as READ_ROUTER } from './routes/crud/read.js';
+import { ROUTES as UPDATE_ROUTER } from './routes/crud/update.js';
+import { ROUTES as DELETE_ROUTER } from './routes/crud/delete.js';
 import Mongoose from 'mongoose';
 import DotENV from 'dotenv';
 
