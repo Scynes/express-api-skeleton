@@ -3,17 +3,11 @@ import { ROUTES as CREATE_ROUTER } from './routes/create.js';
 import { ROUTES as READ_ROUTER } from './routes/read.js';
 import { ROUTES as UPDATE_ROUTER } from './routes/update.js';
 import { ROUTES as DELETE_ROUTER } from './routes/delete.js';
-import DotENV from 'dotenv';
 
 /**
  * The web server express instance reference.
  */
 const WEB_SERVER = Express();
-
-/**
- * Configure environmental variables
- */
-DotENV.config();
 
 /**
  * Read the environment variables for running the application.
