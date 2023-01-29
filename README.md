@@ -1,2 +1,2 @@
-# Ghost-Upload-API
-A ghostly light backend framework for storing and delivering uploaded information!
+# Express API Skeleton
+A light skeleton framework for building a RESTful API using Node + Express.

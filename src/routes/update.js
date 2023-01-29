@@ -1,6 +1,5 @@
 import Express from "express";
-import { APIHandler } from "../../../controllers/api-handler.js";
-import Paste from "../../../controllers/api/paste.js.js";
+import APIHandler from "../controllers/api-handler.js";
 
 /**
  * Defines the update router reference.

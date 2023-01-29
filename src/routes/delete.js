@@ -1,6 +1,5 @@
 import Express from "express";
-import { APIHandler } from "../../controllers/api/api-handler.js";
-import Paste from "../../controllers/api/paste.js";
+import APIHandler from "../controllers/api-handler.js";
 
 /**
  * Defines the delete router reference.
@@ -13,7 +12,6 @@ const DELETE_ROUTER = Express.Router();
 const ROUTES = () => {
 
     DELETE_ROUTER.get('/', APIHandler.landingHandler);
-    DELETE_ROUTER.delete('/paste/:id', Paste.handleDelete);
 
     return DELETE_ROUTER;
 }
