@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Scynes/ghost-upload-api.git"
+    "url": "git+https://github.com/Scynes/express-api-skeleton.git"
   },
   "author": "Dustin Greyfield",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Scynes/ghost-upload-api/issues"
+    "url": "https://github.com/Scynes/express-api-skeleton/issues"
   },
-  "homepage": "https://github.com/Scynes/ghost-upload-api#readme",
+  "homepage": "https://github.com/Scynes/express-api-skeleton#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
