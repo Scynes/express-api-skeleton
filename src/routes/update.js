@@ -11,7 +11,7 @@ const UPDATE_ROUTER = Express.Router();
  */
 const ROUTES = () => {
 
-    UPDATE_ROUTER.get('/', APIHandler.landingHandler);
+    UPDATE_ROUTER.get('/', APIHandler.routeNotValid);
 
     return UPDATE_ROUTER;
 }

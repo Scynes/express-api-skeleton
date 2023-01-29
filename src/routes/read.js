@@ -11,7 +11,7 @@ const READ_ROUTER = Express.Router();
  */
 const ROUTES = () => {
 
-    READ_ROUTER.get('/', APIHandler.landingHandler);
+    READ_ROUTER.get('/', APIHandler.routeNotValid);
 
     return READ_ROUTER;
 }

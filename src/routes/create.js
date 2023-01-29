@@ -11,7 +11,7 @@ const CREATE_ROUTER = Express.Router();
  */
 const ROUTES = () => {
 
-    CREATE_ROUTER.get('/', APIHandler.landingHandler);
+    CREATE_ROUTER.get('/', APIHandler.routeNotValid);
 
     return CREATE_ROUTER;
 }

@@ -11,7 +11,7 @@ const DELETE_ROUTER = Express.Router();
  */
 const ROUTES = () => {
 
-    DELETE_ROUTER.get('/', APIHandler.landingHandler);
+    DELETE_ROUTER.get('/', APIHandler.routeNotValid);
 
     return DELETE_ROUTER;
 }

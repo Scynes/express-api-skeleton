@@ -1,16 +1,12 @@
 export default class APIHandler {
 
-    constructor (model) {
-
-    }
-
     /**
      * Default handler method for a get request on root / API routes.
      * 
-     * @param {*} request 
+     * @param {*} ∂request 
      * @param {*} response 
      */
-    static landingHandler = (request, response) => {
+    static routeNotValid = (request, response) => {
 
         response.json({
             error: 'This is not a valid API route!'
@@ -18,14 +14,14 @@ export default class APIHandler {
     }
 
     /**
-     * Handles an upload requests. Forced abstraction of {APIHandler} implementation.
+     * Handles an create request. Forced abstraction of {APIHandler} implementation.
      * 
      * @param {*} request 
      * @param {*} response 
      */
-    handleUpload = (request, response) => {
+    handleCreate = (request, response) => {
 
-        throw new Error(`Error: handleUpload() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
+        throw new Error(`Error: handleCreate() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
     }
 
     /**
@@ -45,9 +41,9 @@ export default class APIHandler {
      * @param {*} request 
      * @param {*} response 
      */
-    handleGet = (request, response) => {
+    handleRead = (request, response) => {
 
-        throw new Error(`Error: handleGet() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
+        throw new Error(`Error: handleRead() must be implemented for APIHandler -> ${this.constructor.name} abstraction!`);
     }
 
     /**
