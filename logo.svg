@@ -8,15 +8,6 @@
     </rdf:rdf>
   </metadata>
   <defs id="defs36481"></defs>
-  <linearGradient spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient2-logo-6bf52fc1-2cde-43a8-b475-6cc33b06ebfd">
-    <stop id="stop36458" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
-    <stop id="stop36460" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
-  </linearGradient>
-  <linearGradient gradientTransform="rotate(-30)" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient3-logo-6bf52fc1-2cde-43a8-b475-6cc33b06ebfd">
-    <stop id="stop36463" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
-    <stop id="stop36465" stop-opacity="1" stop-color="#cccccc" offset="50%"></stop>
-    <stop id="stop36467" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
-  </linearGradient>
   <g id="logo-group">
     <image xlink:href="" id="container" x="272" y="144" width="480" height="480" transform="translate(0 0)" style="display: none;"></image>
     <g id="logo-center" transform="translate(179.82025375 0)">
